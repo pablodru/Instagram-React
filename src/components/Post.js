@@ -38,6 +38,16 @@ export default function Post(props) {
       }
     }
 
+    function likePost2Clicks(){
+      if (likeIcon === 'heart-outline'){
+        setLikeIcon('heart-sharp');
+        setColorLike('red');
+        setNumberLikes(numberLikes+=1);
+
+        likeAnimation();
+      }
+    }
+
     const numberFormated = numberLikes.toLocaleString('pt-BR', {maximumFractionDigits: 0});
     const numberToPost = numberFormated.replace(/,/g, '.');
 
@@ -54,7 +64,7 @@ export default function Post(props) {
             </div>
 
             <div class="conteudo">
-              <img src={props.post} alt={props.altPost} onDoubleClick={likePost} data-test='post-image' class='post-img'/>
+              <img src={props.post} alt={props.altPost} onDoubleClick={likePost2Clicks} data-test='post-image' class='post-img'/>
               <img src='./assets/img/heart.png' class={likeImage} />
             </div>
 
